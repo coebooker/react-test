@@ -65,6 +65,10 @@ function GetFetchResult(url)
       mode: 'no-cors'
     }
   )
+  .then((res => res.json()))
+  .then((data) => {
+    console.log(data);
+  });
 }
 export default App;
 
