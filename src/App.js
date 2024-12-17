@@ -5,9 +5,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <label for="team">Team:</label>
+        <label htmlFor="team">Team:</label>
         <select name="team" id="team">
-          <option value="none" selected disabled hidden>Select A Team</option>
+          <option value="none" defaultValue disabled hidden>Select A Team</option>
           <option value="anaheim">Anaheim Ducks</option>
           <option value="boston">Boston Bruins</option>
           <option value="buffalo">Buffalo Sabres</option>
@@ -40,18 +40,15 @@ function App() {
           <option value="washington">Washington Capitals</option>
           <option value="winnipeg">Winnipeg Jets</option>
         </select>
-
-        <MyButton/>
+        <MyButton></MyButton>
       </header>
-      <body>
-      </body>
     </div>
   );
 }
 
 function MyButton()
 {
-  GetFetchResult("https://api-web.nhle.com/v1/player/8478402/game-log/now")
+ GetFetchResult("https://cors-anywhere.herokuapp.com/https://api-web.nhle.com/v1/player/8478402/game-log/now")
   return(
   <button>Click me</button>
   );
@@ -61,8 +58,7 @@ function GetFetchResult(url)
 {
   fetch(url,
     {
-      method: 'GET',
-      mode: 'no-cors'
+      method: 'GET'
     }
   )
   .then((res => res.json()))
